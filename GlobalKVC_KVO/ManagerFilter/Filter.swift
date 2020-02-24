@@ -7,11 +7,28 @@
 //
 
 import Foundation
+import UIKit
 
 enum TupeFilter{
     case date
     case list
     case range
+	
+	
+	func pushVC(filter: Filter){
+		
+		guard let NC = UIApplication.shared.workVC.navigationController else {return}
+		
+		switch self {
+		case .date:
+			NC.pushViewController(VCCalendar.route(filter), animated: true)
+		case .list:
+			NC.pushViewController(VCTable.route(filter), animated: true)
+		default:
+			NC.pushViewController(VCTF.route(filter), animated: true)
+		}
+		
+	}
 }
 
 

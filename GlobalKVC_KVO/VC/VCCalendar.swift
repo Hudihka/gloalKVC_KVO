@@ -12,33 +12,35 @@ class VCCalendar: UIViewController {
 	
 	@IBOutlet weak var collectionView: UICollectionView!
 	let dataParser = DateParser.shared
+	var filter: Filter?
 	
     var month: [Month] = []
-	
-    var filtr: Filter? {
-        didSet{
-            desingDiapasone()
-        }
-    }
 	
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       
+       desingDiapasone()
     }
 	
+	
+	static func route(_ filter: Filter) -> VCCalendar{
+		
+		let storubord = UIStoryboard(name: "Main", bundle: nil)
+		let VC = storubord.instantiateViewController(identifier: self.className) as! VCCalendar
+		
+		VC.filter = filter
+		
+		return VC
+	}
+	
     private func desingDiapasone(){
-        guard let filtr = filtr else {return}
+        guard let filter = filter else {return}
 
         //задаем диапазон дат для коллекции
-        dataParser.dateFrom = filtr.min
-        dataParser.dateTo = filtr.maxValue?.dateRemoveT()
+        dataParser.dateFrom = filter.minDate
+        dataParser.dateTo = filter.maxDate
 
-        //задаем смотрим есть ли уже выбранные фильтры
-
-        dataParser.selectedDataOne = getSelectedDateFiltrManager(from: true)
-        dataParser.selectedDataTwo = getSelectedDateFiltrManager(from: false)
 
         desingCollectionView()
 

@@ -24,7 +24,15 @@ class VCTable: UIViewController {
 		desingTV()
     }
 	
-	
+	static func route(_ filter: Filter) -> VCTable{
+		
+		let storubord = UIStoryboard(name: "Main", bundle: nil)
+		let VC = storubord.instantiateViewController(identifier: self.className) as! VCTable
+		
+		VC.filter = filter
+		
+		return VC
+	}
 	
 	
 	

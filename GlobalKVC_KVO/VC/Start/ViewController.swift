@@ -76,6 +76,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
 		return cell
 	}
 	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let filtr = filterArray[indexPath.row]
+		
+		filtr.tupe.pushVC(filter: filtr)
+	}
+	
 
     fileprivate func desingTV(){
 
