@@ -72,6 +72,7 @@
                                 <connections>
                                     <action selector="buttonUpdate:" destination="Z7Q-q5-4lV" eventType="touchUpInside" id="liO-Zi-X8J"/>
                                     <action selector="buttonUupdete:" destination="Z7Q-q5-4lV" eventType="touchUpInside" id="VZx-BA-wOc"/>
+                                    <action selector="saveButtonAction:" destination="pm5-ST-PeR" eventType="touchUpInside" id="NTa-w6-rAK"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ski-pg-efF">
@@ -79,7 +80,7 @@
                                 <color key="backgroundColor" red="0.32877659799999998" green="0.329051435" blue="0.32881915569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Gqt-aK-bVA">
                                     <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
@@ -99,6 +100,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="se5-GF-cPr"/>
                     <connections>
+                        <outlet property="buttonCount" destination="i9h-xt-MGG" id="fSa-dQ-ifC"/>
                         <outlet property="collectionView" destination="Ski-pg-efF" id="ka1-fl-TiJ"/>
                     </connections>
                 </viewController>
@@ -234,6 +236,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="naT-r9-jPS"/>
                     <connections>
+                        <outlet property="buttonCount" destination="Rgb-uQ-Cfj" id="EP4-P5-Prx"/>
                         <outlet property="tableView" destination="gW9-AU-rEq" id="2Tf-KR-uUV"/>
                     </connections>
                 </viewController>

@@ -10,7 +10,9 @@ import UIKit
 
 class VCCalendar: UIViewController {
 	
+	@IBOutlet weak var buttonCount: UIButton!
 	@IBOutlet weak var collectionView: UICollectionView!
+	
 	let dataParser = DateParser.shared
 	var filter: Filter?
 	
@@ -20,6 +22,7 @@ class VCCalendar: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		buttonCount.desing(true)
        desingDiapasone()
     }
 	
@@ -33,6 +36,14 @@ class VCCalendar: UIViewController {
 		
 		return VC
 	}
+	
+	
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+		
+		///убраем
+    }
+
 	
     private func desingDiapasone(){
         guard let filter = filter else {return}
@@ -61,8 +72,7 @@ extension VCCalendar: UICollectionViewDelegateFlowLayout, UICollectionViewDataSo
         month = DateParser.shared.arrayMonth
 
         self.collectionView.baseSettingsCV(obj: self,
-                                           arrayNameCell: ["YearsDayCell"],
-                                           arrayNameHeders: ["MonthHeader"])
+                                           arrayNameCell: ["YearsDayCell"])
 
 
         if let section = self.month.firstIndex(where: {dataParser.monthInDayTooDay(date: $0.days)}), section != 0 {
@@ -123,18 +133,6 @@ extension VCCalendar: UICollectionViewDelegateFlowLayout, UICollectionViewDataSo
         return CGSize(width: widthDay, height: widthDay)
     }
 
-
-    //MARK: - Header
-
-    func collectionView(_ collectionView: UICollectionView,
-                        viewForSupplementaryElementOfKind kind: String,
-                        at indexPath: IndexPath) -> UICollectionReusableView {
-
-        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "MonthHeader", for: indexPath) as! MonthHeader
-        view.month = month[indexPath.section]
-        return view
-
-    }
 
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

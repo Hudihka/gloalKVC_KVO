@@ -24,6 +24,13 @@ class VCTable: UIViewController {
 		desingTV()
     }
 	
+	
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+		
+		///убраем
+    }
+	
 	static func route(_ filter: Filter) -> VCTable{
 		
 		let storubord = UIStoryboard(name: "Main", bundle: nil)
@@ -62,6 +69,12 @@ extension VCTable: UITableViewDelegate, UITableViewDataSource{
 		cell.textLabel?.text = filter?.contentMulti[indexPath.row] ?? "-"
 		
 		return cell
+	}
+	
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
+		
 	}
 	
 

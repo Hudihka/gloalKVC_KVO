@@ -33,7 +33,7 @@ class YearsDayCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
 
@@ -70,7 +70,7 @@ class YearsDayCell: UICollectionViewCell {
         //округлениие вью
 
         if day.isTooDay {
-            labelDay.layer.borderColor = UIColor.white.cgColor
+            labelDay.layer.borderColor = UIColor.blue.cgColor
         }
 
         selected(date: day)
@@ -80,7 +80,7 @@ class YearsDayCell: UICollectionViewCell {
         if isWeekend{
 			return isDiapazone ? UIColor.red : UIColor(red: 120/255, green: 81/255, blue: 81/255, alpha: 1)
         } else {
-            return isDiapazone ? UIColor.white : UIColor(red: 84/255, green: 84/255, blue: 84/255, alpha: 1)
+            return isDiapazone ? UIColor.blue : UIColor(red: 84/255, green: 84/255, blue: 84/255, alpha: 1)
         }
 
 

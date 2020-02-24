@@ -23,6 +23,12 @@ class VCTF: UIViewController {
 		updaateView()
 	}
 	
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+		
+		///убраем
+    }
+	
 	static func route(_ filter: Filter) -> VCTF{
 		
 		let storubord = UIStoryboard(name: "Main", bundle: nil)
