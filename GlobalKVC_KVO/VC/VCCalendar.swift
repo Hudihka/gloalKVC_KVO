@@ -30,7 +30,7 @@ class VCCalendar: UIViewController {
 	static func route(_ filter: Filter) -> VCCalendar{
 		
 		let storubord = UIStoryboard(name: "Main", bundle: nil)
-		let VC = storubord.instantiateViewController(identifier: self.className) as! VCCalendar
+		let VC = storubord.instantiateViewController(withIdentifier: self.className) as! VCCalendar
 		
 		VC.filter = filter
 		

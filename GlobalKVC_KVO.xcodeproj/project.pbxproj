@@ -21,6 +21,7 @@
 		52C2050D2403C64E003D5B07 /* MonthHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C205042403C64E003D5B07 /* MonthHeader.swift */; };
 		52C2050E2403C64E003D5B07 /* MonthHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C205052403C64E003D5B07 /* MonthHeader.xib */; };
 		52C2050F2403C64E003D5B07 /* YearsDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C205062403C64E003D5B07 /* YearsDayCell.xib */; };
+		52F6E66C24041D2C000A2229 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6E66B24041D2C000A2229 /* Int.swift */; };
 		CE6AE90F24012C0E00E2C2BE /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6AE90E24012C0E00E2C2BE /* Filter.swift */; };
 		CE6AE926240135F400E2C2BE /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6AE912240135F400E2C2BE /* UIScrollView.swift */; };
 		CE6AE927240135F400E2C2BE /* UIWindows.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6AE913240135F400E2C2BE /* UIWindows.swift */; };
@@ -64,6 +65,7 @@
 		52C205042403C64E003D5B07 /* MonthHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthHeader.swift; sourceTree = "<group>"; };
 		52C205052403C64E003D5B07 /* MonthHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthHeader.xib; sourceTree = "<group>"; };
 		52C205062403C64E003D5B07 /* YearsDayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YearsDayCell.xib; sourceTree = "<group>"; };
+		52F6E66B24041D2C000A2229 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		CE6AE90E24012C0E00E2C2BE /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		CE6AE912240135F400E2C2BE /* UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		CE6AE913240135F400E2C2BE /* UIWindows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindows.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				CE6AE921240135F400E2C2BE /* FloatAbdDouble.swift */,
 				CE6AE923240135F400E2C2BE /* Timer.swift */,
 				CE6AE924240135F400E2C2BE /* NSObject.swift */,
+				52F6E66B24041D2C000A2229 /* Int.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				52C2050C2403C64E003D5B07 /* YearsDayCell.swift in Sources */,
 				CE6AE92A240135F400E2C2BE /* UITableView.swift in Sources */,
 				CE6AE933240135F400E2C2BE /* Array.swift in Sources */,
+				52F6E66C24041D2C000A2229 /* Int.swift in Sources */,
 				CE6AE93F240138BB00E2C2BE /* StringAndCrypto.swift in Sources */,
 				CE6AE92F240135F400E2C2BE /* UIViewController.swift in Sources */,
 				CE6AE934240135F400E2C2BE /* FloatAbdDouble.swift in Sources */,
@@ -424,7 +428,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -478,7 +482,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
