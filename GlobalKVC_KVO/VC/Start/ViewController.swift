@@ -19,6 +19,41 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		filterArray = [
+			Filter(name: "Таблица одиночная",
+				   keyBackend: "KeyBack1",
+				   multi: false,
+				   tupe: .list,
+				   minValue: nil,
+				   maxValue: nil,
+				   contentMulti: ["Maha", "Paha", "Vova", "Assa", "Egor", "Petr", "Olga"]),
+			Filter(name: "Таблица мульти",
+				   keyBackend: "KeyBack2",
+				   multi: true,
+				   tupe: .list,
+				   minValue: nil,
+				   maxValue: nil,
+				   contentMulti: ["MahaMulti", "PahaMulti", "VovaMulti", "AssaMulti", "EgorMulti", "PetrMulti", "OlgaMulti"]),
+			Filter(name: "Budget",
+				   keyBackend: "KeyBack2",
+				   multi: false,
+				   tupe: .range,
+				   minValue: "500",
+				   maxValue: "80000",
+				   contentMulti: []),
+			Filter(name: "Calendar",
+				   keyBackend: "KeyBack3",
+				   multi: false,
+				   tupe: .date,
+				   minValue: "2019-02-24T09:25:25+0000",
+				   maxValue: "2020-10-24T09:25:25+0000",
+				   contentMulti: [])
+		]
+		
+		
+		
+		
+		
         saveButton.desing(true)
 	}
 
@@ -33,12 +68,20 @@ class ViewController: UIViewController {
 
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return filterArray.count
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		<#code#>
+	}
+	
 
     fileprivate func desingTV(){
 
         tableView.baseSettingsTV(obj: self,
                                  minHeghtCell: 60,
-                                 arrayNameCell: [String]?)
+                                 arrayNameCell: ["CellFilter"])
 
 
     }

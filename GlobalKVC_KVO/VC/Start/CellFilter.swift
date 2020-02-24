@@ -13,6 +13,7 @@ import UIKit
 class CellFilter: UITableViewCell {
 
     @IBOutlet weak var labelTitle: UILabel!
+	@IBOutlet weak var labelDescription: UILabel!
     @IBOutlet weak var buttonClear: UIButton!
 
 
@@ -36,6 +37,7 @@ class CellFilter: UITableViewCell {
     private func desingTV(){
         guard let filter = self.filter else {return}
 
+		labelTitle.text = filter.name
 
     }
     

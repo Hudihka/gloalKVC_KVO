@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="YearsDayCell" customModule="TC5_ЕР" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="138" height="125"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="138" height="125"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GKm-jC-4WC">
+                        <rect key="frame" x="69" y="0.0" width="0.0" height="125"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" id="K5r-8j-wxW"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFi-k5-PdY">
+                        <rect key="frame" x="13" y="12.5" width="56" height="100"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vP3-ip-xqI">
+                        <rect key="frame" x="69" y="12.5" width="56" height="100"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0CX-gs-7CV">
+                        <rect key="frame" x="19" y="12.5" width="100" height="100"/>
+                        <color key="backgroundColor" red="0.20985230799999999" green="0.21004199979999999" blue="0.20988169309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="0CX-gs-7CV" secondAttribute="height" multiplier="1:1" id="XKq-HG-Rld"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lL4-u0-TtY">
+                        <rect key="frame" x="0.0" y="0.0" width="138" height="125"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="buttonSelect:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Brn-ji-jzZ"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fFi-k5-PdY" firstAttribute="bottom" secondItem="0CX-gs-7CV" secondAttribute="bottom" id="Au7-Xo-l1o"/>
+                <constraint firstAttribute="bottom" secondItem="lL4-u0-TtY" secondAttribute="bottom" id="DyE-vx-3Nh"/>
+                <constraint firstItem="lL4-u0-TtY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Ghd-bH-1RO"/>
+                <constraint firstItem="vP3-ip-xqI" firstAttribute="leading" secondItem="GKm-jC-4WC" secondAttribute="trailing" id="Joo-Gv-48b"/>
+                <constraint firstItem="GKm-jC-4WC" firstAttribute="centerX" secondItem="0CX-gs-7CV" secondAttribute="centerX" id="Npt-ju-fIu"/>
+                <constraint firstItem="fFi-k5-PdY" firstAttribute="top" secondItem="0CX-gs-7CV" secondAttribute="top" id="OH0-zE-wPr"/>
+                <constraint firstItem="lL4-u0-TtY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="OPg-jh-r1i"/>
+                <constraint firstItem="fFi-k5-PdY" firstAttribute="width" secondItem="0CX-gs-7CV" secondAttribute="width" multiplier="0.56" id="VHN-YW-hT7"/>
+                <constraint firstItem="0CX-gs-7CV" firstAttribute="height" secondItem="ZTg-uK-7eu" secondAttribute="height" multiplier="0.8" id="VQC-02-8jK"/>
+                <constraint firstAttribute="trailing" secondItem="lL4-u0-TtY" secondAttribute="trailing" id="X61-VM-u8V"/>
+                <constraint firstItem="GKm-jC-4WC" firstAttribute="leading" secondItem="fFi-k5-PdY" secondAttribute="trailing" id="YL2-hf-bq5"/>
+                <constraint firstItem="vP3-ip-xqI" firstAttribute="width" secondItem="fFi-k5-PdY" secondAttribute="width" id="Yiz-tv-lvX"/>
+                <constraint firstItem="0CX-gs-7CV" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="a50-Y9-b3F"/>
+                <constraint firstItem="vP3-ip-xqI" firstAttribute="bottom" secondItem="0CX-gs-7CV" secondAttribute="bottom" id="gxK-KI-SXZ"/>
+                <constraint firstItem="vP3-ip-xqI" firstAttribute="top" secondItem="0CX-gs-7CV" secondAttribute="top" id="mDg-15-hzo"/>
+                <constraint firstItem="0CX-gs-7CV" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="oqf-a6-UXP"/>
+                <constraint firstAttribute="bottom" secondItem="GKm-jC-4WC" secondAttribute="bottom" id="taa-4i-s0E"/>
+                <constraint firstItem="GKm-jC-4WC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wLJ-5v-dzg"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="138" height="125"/>
+            <connections>
+                <outlet property="buttonSelected" destination="lL4-u0-TtY" id="5zX-lF-sW6"/>
+                <outlet property="labelDay" destination="0CX-gs-7CV" id="h3n-Ep-lV4"/>
+                <outlet property="leftView" destination="fFi-k5-PdY" id="yFL-SZ-ty0"/>
+                <outlet property="rightView" destination="vP3-ip-xqI" id="Jys-EN-DvR"/>
+            </connections>
+            <point key="canvasLocation" x="203.19999999999999" y="188.45577211394306"/>
+        </collectionViewCell>
+    </objects>
+</document>

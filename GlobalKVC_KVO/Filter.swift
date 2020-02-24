@@ -46,6 +46,33 @@ class Filter {
 
         self.contentMulti   = contentMulti
     }
+	
+	var minIntValue: Int {
+		guard let minValue = minValue else {return 0}
+		
+		return Int(minValue) ?? 0
+	}
+	
+	var maxIntValue: Int {
+		guard let maxValue = maxValue else {return Int.max}
+		
+		return Int(maxValue) ?? Int.max
+	}
+	
+	
+	var minDate: Date? {
+		guard let minValue = minValue else {return nil}
+		
+		return minValue.getDatwToString()
+	}
+	
+	var maxDate: Date? {
+		guard let maxValue = maxValue else {return nil}
+		
+		return maxValue.getDatwToString()
+	}
+	
+	
 
 
 }
