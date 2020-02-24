@@ -53,10 +53,10 @@
             </objects>
             <point key="canvasLocation" x="280.80000000000001" y="291.90404797601201"/>
         </scene>
-        <!--Table-->
+        <!--Calendar-->
         <scene sceneID="g8t-Xt-psd">
             <objects>
-                <viewController storyboardIdentifier="VCCalendar" id="pm5-ST-PeR" customClass="VCTable" customModule="GlobalKVC_KVO" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VCCalendar" id="pm5-ST-PeR" customClass="VCCalendar" customModule="GlobalKVC_KVO" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Jc-aM-Dn0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,6 +98,9 @@
                         <viewLayoutGuide key="safeArea" id="DgD-6w-0Lo"/>
                     </view>
                     <navigationItem key="navigationItem" id="se5-GF-cPr"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Ski-pg-efF" id="ka1-fl-TiJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eVr-1h-WNo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Z7Q-q5-4lV" userLabel="Exit" sceneMemberID="exit"/>

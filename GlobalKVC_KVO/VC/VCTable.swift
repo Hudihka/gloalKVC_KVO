@@ -8,16 +8,29 @@
 
 import UIKit
 
-class VCTableOne: UIViewController {
+class VCTable: UIViewController {
 	
 	@IBOutlet weak var buttonCount: UIButton!
+	@IBOutlet weak var tableView: UITableView!
+	
+	
+	var filter: Filter?
 	
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		
         buttonCount.desing(true)
+		desingTV()
+    }
+	
+	
+	
+	
+	
+	
+    @IBAction func saveButtonAction(_ sender: Any) {
+		self.navigationController?.popViewController(animated: true)
     }
 	
 
@@ -30,16 +43,28 @@ class VCTableOne: UIViewController {
 
 }
 
-
-
-
-
-
-extension UIButton{
+extension VCTable: UITableViewDelegate, UITableViewDataSource{
 	
-	func desing(_ block: Bool){
-		self.isEnabled = !block
-		self.alpha = block ? 0.5 : 1
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return filter?.contentMulti.count ?? 0
 	}
 	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+		cell.textLabel?.text = filter?.contentMulti[indexPath.row] ?? "-"
+		
+		return cell
+	}
+	
+
+    fileprivate func desingTV(){
+		
+		self.tableView.delegate = self
+		self.tableView.dataSource = self
+
+    }
+
+
 }
+
+

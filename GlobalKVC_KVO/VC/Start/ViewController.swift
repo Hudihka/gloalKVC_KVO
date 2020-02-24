@@ -50,10 +50,7 @@ class ViewController: UIViewController {
 				   contentMulti: [])
 		]
 		
-		
-		
-		
-		
+		desingTV()
         saveButton.desing(true)
 	}
 
@@ -73,7 +70,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		<#code#>
+		let cell = tableView.dequeueReusableCell(withIdentifier: "CellFilter", for: indexPath) as! CellFilter
+		cell.filter = filterArray[indexPath.row]
+		
+		return cell
 	}
 	
 

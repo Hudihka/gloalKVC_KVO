@@ -28,9 +28,9 @@ class VCTF: UIViewController {
 	}
 	
 	
-    @IBAction func buttonUpdate(_ sender: UIButton) {
+    @IBAction func saveButtonAction(_ sender: Any) {
 
-
+        self.navigationController?.popViewController(animated: true)
     }
 
 	

@@ -21,8 +21,6 @@
 		52C2050D2403C64E003D5B07 /* MonthHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C205042403C64E003D5B07 /* MonthHeader.swift */; };
 		52C2050E2403C64E003D5B07 /* MonthHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C205052403C64E003D5B07 /* MonthHeader.xib */; };
 		52C2050F2403C64E003D5B07 /* YearsDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C205062403C64E003D5B07 /* YearsDayCell.xib */; };
-		52C205102403C64E003D5B07 /* CalendarViewCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C205072403C64E003D5B07 /* CalendarViewCollection.swift */; };
-		52C205112403C64E003D5B07 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C205082403C64E003D5B07 /* CalendarView.swift */; };
 		CE6AE90F24012C0E00E2C2BE /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6AE90E24012C0E00E2C2BE /* Filter.swift */; };
 		CE6AE926240135F400E2C2BE /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6AE912240135F400E2C2BE /* UIScrollView.swift */; };
 		CE6AE927240135F400E2C2BE /* UIWindows.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6AE913240135F400E2C2BE /* UIWindows.swift */; };
@@ -66,8 +64,6 @@
 		52C205042403C64E003D5B07 /* MonthHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthHeader.swift; sourceTree = "<group>"; };
 		52C205052403C64E003D5B07 /* MonthHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthHeader.xib; sourceTree = "<group>"; };
 		52C205062403C64E003D5B07 /* YearsDayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YearsDayCell.xib; sourceTree = "<group>"; };
-		52C205072403C64E003D5B07 /* CalendarViewCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewCollection.swift; sourceTree = "<group>"; };
-		52C205082403C64E003D5B07 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		CE6AE90E24012C0E00E2C2BE /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		CE6AE912240135F400E2C2BE /* UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		CE6AE913240135F400E2C2BE /* UIWindows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindows.swift; sourceTree = "<group>"; };
@@ -127,7 +123,6 @@
 				5274578623FEE34B003F5CD7 /* AppDelegate.swift */,
 				527457A223FEF51A003F5CD7 /* VC */,
 				CE6AE93B240137BF00E2C2BE /* ManagerFilter */,
-				CE6AE90E24012C0E00E2C2BE /* Filter.swift */,
 				52C204FD2403C64E003D5B07 /* CalendarView */,
 				CE6AE9402401390000E2C2BE /* Support */,
 				5274578F23FEE34C003F5CD7 /* Assets.xcassets */,
@@ -154,8 +149,6 @@
 			children = (
 				52C204FE2403C64E003D5B07 /* ManagersCalendar */,
 				52C205022403C64E003D5B07 /* CalendarSupportView */,
-				52C205072403C64E003D5B07 /* CalendarViewCollection.swift */,
-				52C205082403C64E003D5B07 /* CalendarView.swift */,
 			);
 			path = CalendarView;
 			sourceTree = "<group>";
@@ -225,6 +218,7 @@
 		CE6AE93B240137BF00E2C2BE /* ManagerFilter */ = {
 			isa = PBXGroup;
 			children = (
+				CE6AE90E24012C0E00E2C2BE /* Filter.swift */,
 				CE6AE939240137A600E2C2BE /* ManagerFilters.swift */,
 			);
 			path = ManagerFilter;
@@ -337,11 +331,9 @@
 				CE6AE94624013C1700E2C2BE /* CellFilter.swift in Sources */,
 				CE6AE937240135F400E2C2BE /* NSObject.swift in Sources */,
 				CE6AE93E240138BB00E2C2BE /* Date.swift in Sources */,
-				52C205112403C64E003D5B07 /* CalendarView.swift in Sources */,
 				52C2050D2403C64E003D5B07 /* MonthHeader.swift in Sources */,
 				52C2050C2403C64E003D5B07 /* YearsDayCell.swift in Sources */,
 				CE6AE92A240135F400E2C2BE /* UITableView.swift in Sources */,
-				52C205102403C64E003D5B07 /* CalendarViewCollection.swift in Sources */,
 				CE6AE933240135F400E2C2BE /* Array.swift in Sources */,
 				CE6AE93F240138BB00E2C2BE /* StringAndCrypto.swift in Sources */,
 				CE6AE92F240135F400E2C2BE /* UIViewController.swift in Sources */,
