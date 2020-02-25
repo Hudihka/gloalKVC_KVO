@@ -13,22 +13,7 @@ enum TupeFilter{
     case date
     case list
     case range
-	
-	
-	func pushVC(filter: Filter){
 		
-		guard let NC = UIApplication.shared.workVC.navigationController else {return}
-		
-		switch self {
-		case .date:
-			NC.pushViewController(VCCalendar.route(filter), animated: true)
-		case .list:
-			NC.pushViewController(VCTable.route(filter), animated: true)
-		default:
-			NC.pushViewController(VCTF.route(filter), animated: true)
-		}
-		
-	}
 }
 
 
@@ -89,7 +74,23 @@ class Filter {
 		return maxValue.getDatwToString()
 	}
 	
+}
+
+
+extension Filter: Hashable {
 	
-
-
+	static func == (lhs: Filter, rhs: Filter) -> Bool {
+		
+		if lhs.keyBackend == rhs.keyBackend, lhs.name == rhs.name{
+			return true
+		}
+		
+		return false
+	}
+	
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(keyBackend)
+        hasher.combine(name)
+    }
+	
 }

@@ -14,6 +14,8 @@ class ViewController: UIViewController {
 	
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+	
+	let manager = ManagerFilters.shared
 
 
 	override func viewDidLoad() {
@@ -81,7 +83,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
 		
 		let filtr = filterArray[indexPath.row]
 		
-		filtr.tupe.pushVC(filter: filtr)
+		manager.pushVC(VC: self, filter: filtr)
 	}
 	
 
