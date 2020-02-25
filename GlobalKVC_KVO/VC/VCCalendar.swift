@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VCCalendar: UIViewController {
+class VCCalendar: MainViewController {
 	
 	@IBOutlet weak var buttonCount: UIButton!
 	@IBOutlet weak var collectionView: UICollectionView!
@@ -36,13 +36,6 @@ class VCCalendar: UIViewController {
 		
 		return VC
 	}
-	
-	
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-		
-		///убраем
-    }
 
 	
     private func desingDiapasone(){
@@ -59,6 +52,7 @@ class VCCalendar: UIViewController {
     
 	
     @IBAction func saveButtonAction(_ sender: Any) {
+		managerFilter.dismisLocale(save: true)
         self.navigationController?.popViewController(animated: true)
     }
 

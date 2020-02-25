@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VCTF: UIViewController {
+class VCTF: MainViewController {
 
     @IBOutlet weak var buttonUpdate: UIButton!
 
@@ -48,6 +48,8 @@ class VCTF: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		
+		
 		NotificationCenter.default.addObserver(self,
 											   selector: #selector(kbDidHide),
 											   name: UIResponder.keyboardWillHideNotification,
@@ -55,12 +57,6 @@ class VCTF: UIViewController {
 		
 		updaateView()
 	}
-	
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-		
-		///убраем
-    }
 	
 	static func route(_ filter: Filter) -> VCTF{
 		
@@ -81,15 +77,17 @@ class VCTF: UIViewController {
 		self.textField.placeholder = "от \(filter.minIntValue)"
 		self.textField2.placeholder = "до \(filter.maxIntValue)"
 		
-		
-		//значения из выбранных фильтров
+		if let arrayInt = managerFilter.textTF(filter){
+			self.textField.text = "\(arrayInt.min()!)"
+			self.textField2.text = "\(arrayInt.max()!)"
+		}
 
         buttonUpdate.desing(true)
 	}
 	
 	
     @IBAction func saveButtonAction(_ sender: Any) {
-
+		managerFilter.dismisLocale(save: true)
         self.navigationController?.popViewController(animated: true)
     }
 	
@@ -102,7 +100,8 @@ class VCTF: UIViewController {
 	
     @objc func kbDidHide(notification: Notification) {
 		if isNoEmmpty, minValue <= maxValue, inDiapasone{
-			
+			managerFilter.addFiltrLocal(filter, value: minValue)
+			managerFilter.addFiltrLocal(filter, value: maxValue)
 		} else {
 			textField.text = nil
 			textField2.text = nil

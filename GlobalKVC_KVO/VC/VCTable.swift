@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VCTable: UIViewController {
+class VCTable: MainViewController {
 	
 	@IBOutlet weak var buttonCount: UIButton!
 	@IBOutlet weak var tableView: UITableView!
@@ -25,12 +25,6 @@ class VCTable: UIViewController {
     }
 	
 	
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-		
-		///убраем
-    }
-	
 	static func route(_ filter: Filter) -> VCTable{
 		
 		let storubord = UIStoryboard(name: "Main", bundle: nil)
@@ -45,6 +39,7 @@ class VCTable: UIViewController {
 	
 	
     @IBAction func saveButtonAction(_ sender: Any) {
+		managerFilter.dismisLocale(save: true)
 		self.navigationController?.popViewController(animated: true)
     }
 	
@@ -66,7 +61,11 @@ extension VCTable: UITableViewDelegate, UITableViewDataSource{
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-		cell.textLabel?.text = filter?.contentMulti[indexPath.row] ?? "-"
+		
+		let text = filter?.contentMulti[indexPath.row] ?? "-"
+		cell.textLabel?.text = text
+		
+		cell.backgroundColor = managerFilter.isSelect(filter, str: text) ? UIColor.red : UIColor.white
 		
 		return cell
 	}
@@ -75,7 +74,11 @@ extension VCTable: UITableViewDelegate, UITableViewDataSource{
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		
+		let text = filter?.contentMulti[indexPath.row] ?? "-"
+		managerFilter.addFiltrLocal(filter, value: text)
+		tableView.reloadData()
 	}
+	
 	
 
     fileprivate func desingTV(){

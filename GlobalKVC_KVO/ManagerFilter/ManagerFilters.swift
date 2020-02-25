@@ -65,7 +65,6 @@ class ManagerFilters{
 			return arrayStr.joined(separator: ", ")
 		}
 		
-		
 	}
 	
 	
@@ -89,14 +88,28 @@ class ManagerFilters{
 			let stringValue = value as? String,
 		    stringArray.contains(stringValue) {
 			
-			localFiltersCopy[filtr] = stringArray.filter({$0 != stringValue})
+			localFiltersCopy[filtr] = filtr.multi ? stringArray.filter({$0 != stringValue}) : nil
 			
 		} else {
 			array += [value]
-			localFiltersCopy[filtr] = array
+			localFiltersCopy[filtr] = filtr.multi ? array : [value]
 		}
-	
 	}
+	
+	func textTF(_ filtr: Filter?) -> [Int]?{
+		guard let filtr = filtr, let array = localFiltersCopy[filtr] as? [Int] else {return nil}
+		
+		return array
+	}
+	
+	
+	func isSelect(_ filtr: Filter?, str: String) -> Bool{
+		
+		guard let filtr = filtr, let arrayStr = localFiltersCopy[filtr] as? [String] else {return false}
+		
+		return arrayStr.contains(str)
+	}
+	
 	
 	func dismisLocale(save: Bool){
 		
