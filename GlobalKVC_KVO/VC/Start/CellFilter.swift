@@ -25,19 +25,15 @@ class CellFilter: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+		labelDescription.text = nil
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
     private func desingTV(){
         guard let filter = self.filter else {return}
 
 		labelTitle.text = filter.name
+		labelDescription.text = ManagerFilters.shared.textCell(filter)
 
     }
     

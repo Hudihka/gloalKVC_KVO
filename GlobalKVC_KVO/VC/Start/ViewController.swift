@@ -55,12 +55,19 @@ class ViewController: UIViewController {
 		desingTV()
         saveButton.desing(true)
 	}
+	
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+		
+		///убраем
+    }
 
     
 
     @IBAction func saveButtonAction(_ sender: Any) {
 
         saveButton.desing(true)
+		self.navigationController?.popViewController(animated: true)
     }
 
 }

@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
+
 enum TupeFilter{
     case date
     case list
     case range
-		
 }
 
 
@@ -73,6 +73,10 @@ class Filter {
 		
 		return maxValue.getDatwToString()
 	}
+	
+	
+	//построениие ячеек
+	
 	
 }
 

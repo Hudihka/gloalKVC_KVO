@@ -12,9 +12,35 @@ class VCTF: UIViewController {
 
     @IBOutlet weak var buttonUpdate: UIButton!
 
-	
 	@IBOutlet weak var textField: UITextField!
 	@IBOutlet weak var textField2: UITextField!
+	
+	private var minValue: Int{
+		return textField.count ?? filter?.minIntValue ?? 0
+	}
+	
+	private var maxValue: Int{
+		return textField2.count ?? filter?.maxIntValue ?? Int.max
+	}
+	
+	private var isNoEmmpty: Bool{
+		if textField.count != nil {
+			return true
+		}
+		
+		return textField2.count != nil
+	}
+	
+	private var inDiapasone: Bool {
+		
+		guard let filtr = filter else {return false}
+		
+		if filtr.minIntValue <= minValue, maxValue <= filtr.maxIntValue {
+			return true
+		}
+		
+		return false
+	}
 	
 	
 	var filter: Filter?
@@ -75,14 +101,22 @@ class VCTF: UIViewController {
 	}
 	
     @objc func kbDidHide(notification: Notification) {
-        ///
+		if isNoEmmpty, minValue <= maxValue, inDiapasone{
+			
+		} else {
+			textField.text = nil
+			textField2.text = nil
+		}
     }
+	
+	
 	
 	
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
 
+	
 	
 }
 
