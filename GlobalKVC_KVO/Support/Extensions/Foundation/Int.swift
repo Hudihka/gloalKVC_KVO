@@ -15,7 +15,11 @@ extension Int{
 		return "\(self)".count
 	}
 	
-	
+	func equalLenghtSumbol(str: String) -> Bool{
+		
+		return str.count <= countSummbol
+		
+	}
 	
 	
 }

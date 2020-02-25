@@ -93,39 +93,23 @@ extension VCTF: UITextFieldDelegate {
 					shouldChangeCharactersIn range: NSRange,
 					replacementString string: String) -> Bool {
 		
-		let str = textField.resultString(string: string, range: range)
-		guard let filter = filter, let number = Int(str) else {return true}
+		guard let filter = filter else {return true}
 		
-		let value = textField == self.textField ? filter.minIntValue : filter.maxIntValue
-		
-		
-		
-		
-		
-		
-		if textField == self.textField{
-			
-			return number >= filter.minIntValue
-			
+		let firstTF = textField == self.textField
+
+		if firstTF {
+			return textField.allowReadMin(minValue: filter.minIntValue,
+										  maxValue: filter.maxIntValue,
+										  string: string,
+										  range: range)
+
 		} else {
-			
-			return number <= filter.maxIntValue
-			
+
+			return textField.allowReadMin(maxValue: filter.maxIntValue, string: string, range: range)
+
 		}
 
     }
 	
-
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool { //нажатие на кнопку next
-
-        if textField == self.textField {
-			self.textField2.becomeFirstResponder()
-		} else {
-			textField2.resignFirstResponder()
-		}
-
-        return false
-    }
 	
 }

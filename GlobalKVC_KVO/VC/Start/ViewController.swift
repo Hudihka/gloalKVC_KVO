@@ -38,7 +38,7 @@ class ViewController: UIViewController {
 				   keyBackend: "KeyBack2",
 				   multi: false,
 				   tupe: .range,
-				   minValue: "500",
+				   minValue: "0",
 				   maxValue: "80000",
 				   contentMulti: []),
 			Filter(name: "Calendar",

@@ -100,6 +100,42 @@ extension UITextField {
         return Int(text)
 
     }
+	
+	//минимальное и максимальное возможное значение
+	//если фолз то нельзя вводить
+	
+	func allowReadMin(minValue: Int, maxValue: Int, string: String, range: NSRange) -> Bool{
+		
+		if self.isFirstSumbolZero(string: string){
+			return false
+		}
+		
+		return self.allowReadMin(maxValue: maxValue, string: string, range: range)
+	}
+	
+	func allowReadMin(maxValue: Int, string: String, range: NSRange) -> Bool{
+		
+		if self.isFirstSumbolZero(string: string){
+			return false
+		}
+		
+		let resultString = self.resultString(string: string, range: range)
+		guard let value = Int(resultString) else {return true}
+		
+		return value <= maxValue
+		
+	}
+	
+	private func isFirstSumbolZero(string: String) -> Bool{
+		guard let text = self.text else {return false}
+		
+		if text == "0", string != ""{
+			return true
+		}
+		
+		return false
+	}
+	
 
 }
 
