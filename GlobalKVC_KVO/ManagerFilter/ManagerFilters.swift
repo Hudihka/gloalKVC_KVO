@@ -14,10 +14,10 @@ class ManagerFilters{
 	
 	static let shared = ManagerFilters()
 	
-	private var allFilters: [Filter : [Any]] = [:]
+	private var allFilters: [Filter : FiltersValue] = [:]
 	
-	private var allFiltersCopy: [Filter : [Any]] = [:]
-	private var localFiltersCopy: [Filter : [Any]] = [:]
+	private var allFiltersCopy: [Filter : FiltersValue] = [:]
+	private var localFiltersCopy: [Filter : FiltersValue] = [:]
 	
 	
 	func pushVC(VC: UIViewController, filter: Filter){
@@ -38,14 +38,13 @@ class ManagerFilters{
 	
 	func textCell(_ filtr: Filter) -> String?{
 		
-		guard let array = allFiltersCopy[filtr] else {return nil}
+		guard let filtrStruct = allFiltersCopy[filtr] else {return nil}
 		
 		switch filtr.tupe {
 		case .date:
 			
-			guard let arrayStr = array as? [Date],
-				let first = arrayStr.min()?.printDate(format: "d.MM.yyyy"),
-				let last = arrayStr.max()?.printDate(format: "d.MM.yyyy")  else {
+			guard let first = filtrStruct.arrayDate.min()?.printDate(format: "d.MM.yyyy"),
+				let last = filtrStruct.arrayDate.max()?.printDate(format: "d.MM.yyyy")  else {
 					return nil
 			}
 			
@@ -53,16 +52,14 @@ class ManagerFilters{
 			
 		case .range:
 		
-			guard let arrayInt = array as? [Int],
-				let min = arrayInt.min(),
-				let max = arrayInt.max() else {return nil}
+			guard let min = filtrStruct.arrayRange.min(),
+				let max = filtrStruct.arrayRange.max() else {return nil}
 			
 			return "от \(min) до \(max)"
 			
 		default:
 			
-			guard let arrayStr = array as? [String] else {return nil}
-			return arrayStr.joined(separator: ", ")
+			return filtrStruct.arrayString.joined(separator: ", ")
 		}
 		
 	}
@@ -78,26 +75,17 @@ class ManagerFilters{
 		
 		guard let filtr = filtr else {return}
 		
-		guard var array = localFiltersCopy[filtr] else {
-			localFiltersCopy[filtr] = [value]
+		guard var structSelected = localFiltersCopy[filtr] else {
+			localFiltersCopy[filtr] = FiltersValue(any: value)
 			return
 		}
 		
-		if filtr.tupe == .list,
-			let stringArray = array as? [String],
-			let stringValue = value as? String,
-		    stringArray.contains(stringValue) {
-			
-			localFiltersCopy[filtr] = filtr.multi ? stringArray.filter({$0 != stringValue}) : nil
-			
-		} else {
-			array += [value]
-			localFiltersCopy[filtr] = filtr.multi ? array : [value]
-		}
+		structSelected.reloadStruct(filter: filtr, any: value)
+		localFiltersCopy[filtr] = structSelected
 	}
 	
 	func textTF(_ filtr: Filter?) -> [Int]?{
-		guard let filtr = filtr, let array = localFiltersCopy[filtr] as? [Int] else {return nil}
+		guard let filtr = filtr, let array = localFiltersCopy[filtr]?.arrayRange, !array.isEmpty else {return nil}
 		
 		return array
 	}
@@ -105,7 +93,7 @@ class ManagerFilters{
 	
 	func isSelect(_ filtr: Filter?, str: String) -> Bool{
 		
-		guard let filtr = filtr, let arrayStr = localFiltersCopy[filtr] as? [String] else {return false}
+		guard let filtr = filtr, let arrayStr = localFiltersCopy[filtr]?.arrayString else {return false}
 		
 		return arrayStr.contains(str)
 	}
@@ -146,6 +134,9 @@ class ManagerFilters{
 		//TODO добавить нотифиикацию закрытия вью контроллера с фильтрами
 		//и перезагрузка навигейшен бара
 	}
+	
+	///сравнениие значений
+	
 	
 	
 }
