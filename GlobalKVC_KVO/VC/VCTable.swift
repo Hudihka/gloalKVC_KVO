@@ -44,13 +44,10 @@ class VCTable: MainViewController {
     }
 	
 
+    override func equaleLocalFilters(blockButton: Bool) {
+        buttonCount.desing(blockButton)
+    }
 	
-	
-	
-	
-    
-
-
 }
 
 extension VCTable: UITableViewDelegate, UITableViewDataSource{

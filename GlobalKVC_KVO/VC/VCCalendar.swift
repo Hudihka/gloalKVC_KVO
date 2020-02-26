@@ -56,6 +56,10 @@ class VCCalendar: MainViewController {
         self.navigationController?.popViewController(animated: true)
     }
 
+    override func equaleLocalFilters(blockButton: Bool) {
+        buttonCount.desing(blockButton)
+    }
+
 }
 
 

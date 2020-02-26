@@ -107,6 +107,10 @@ class VCTF: MainViewController {
 			textField2.text = nil
 		}
     }
+
+    override func equaleLocalFilters(blockButton: Bool) {
+        buttonUpdate.desing(blockButton)
+    }
 	
 	
 	

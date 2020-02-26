@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+@objc protocol EqualeFilters: class{
+    @objc optional func equaleLocalFilters(blockButton: Bool)
+    @objc optional func equaleAllFilters(blockButton: Bool)
+}
 
 class ManagerFilters{
 	
@@ -18,7 +22,8 @@ class ManagerFilters{
 	
 	private var allFiltersCopy: [Filter : FiltersValue] = [:]
 	private var localFiltersCopy: [Filter : FiltersValue] = [:]
-	
+
+    weak var delegate: EqualeFilters?
 	
 	func pushVC(VC: UIViewController, filter: Filter){
 		
@@ -77,11 +82,13 @@ class ManagerFilters{
 		
 		guard var structSelected = localFiltersCopy[filtr] else {
 			localFiltersCopy[filtr] = FiltersValue(any: value)
+            equal()
 			return
 		}
 		
 		structSelected.reloadStruct(filter: filtr, any: value)
-		localFiltersCopy[filtr] = structSelected
+        localFiltersCopy[filtr] = structSelected.isEmptuStruct ? nil : structSelected
+        equal()
 	}
 	
 	func textTF(_ filtr: Filter?) -> [Int]?{
@@ -135,8 +142,23 @@ class ManagerFilters{
 		//и перезагрузка навигейшен бара
 	}
 	
-	///сравнениие значений
+	///MARK: - сравнениие значений
 	
-	
-	
+    private func equal(){
+        if let equal = self.delegate?.equaleLocalFilters {
+            equal(localFiltersCopy == allFiltersCopy)
+        }
+
+        if let equal = self.delegate?.equaleAllFilters {
+            equal(allFilters == allFiltersCopy)
+        }
+    }
+
+
+//    private func eqGlobal(){
+//        if let equal = self.delegate?.equaleAllFilters {
+//            equal(allFilters == allFiltersCopy)
+//        }
+//    }
+
 }

@@ -53,6 +53,7 @@ class ViewController: UIViewController {
 		]
 		
 		desingTV()
+        manager.createGlobalCopu()
         saveButton.desing(true)
 	}
 	
@@ -62,11 +63,19 @@ class ViewController: UIViewController {
 		///убраем
     }
 
-    
+    @IBAction func dismisButton(_ sender: Any) {
+
+        saveButton.desing(true)
+        manager.dismisGlobal(save: false)
+        self.navigationController?.popViewController(animated: true)
+
+    }
+
 
     @IBAction func saveButtonAction(_ sender: Any) {
 
         saveButton.desing(true)
+        manager.dismisGlobal(save: true)
 		self.navigationController?.popViewController(animated: true)
     }
 
@@ -104,4 +113,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     }
 
 
+}
+
+
+extension ViewController: EqualeFilters{
+    func equaleAllFilters(blockButton: Bool){
+        saveButton.desing(blockButton)
+        self.tableView.reloadData()
+    }
 }
