@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-@objc protocol EqualeFilters: class{
-    @objc optional func equaleLocalFilters(blockButton: Bool)
-    @objc optional func equaleAllFilters(blockButton: Bool)
+protocol EqualeLocale: class{
+    func equaleLocalFilters(_ blockButton: Bool)
 }
 
-protocol Equal2: class {
-    func equale2(blockButton: Bool)
+protocol EqualGlobal: class {
+	func reloadTV()
+    func equalGlobalFilters(_ blockButton: Bool)
 }
 
 class ManagerFilters{
@@ -27,8 +27,8 @@ class ManagerFilters{
 	private var allFiltersCopy: [Filter : FiltersValue] = [:]
 	private var localFiltersCopy: [Filter : FiltersValue] = [:]
 
-    weak var delegate: EqualeFilters?
-    weak var delegate2: Equal2?
+    weak var delegateLocale: EqualeLocale?
+    weak var delegateGlobal: EqualGlobal?
 	
 	func pushVC(VC: UIViewController, filter: Filter){
 		
@@ -115,6 +115,7 @@ class ManagerFilters{
 		
 		if save {
 			allFiltersCopy = localFiltersCopy
+			self.delegateGlobal?.equalGlobalFilters(allFilters == allFiltersCopy)
 		}
 		
 		localFiltersCopy = [:]
@@ -150,15 +151,13 @@ class ManagerFilters{
 	///MARK: - сравнениие значений
 	
     private func equal(){
-        if let equal = self.delegate?.equaleLocalFilters {
-            equal(localFiltersCopy == allFiltersCopy)
-        }
-
-        if let equal = self.delegate?.equaleAllFilters {
-            equal(allFilters == allFiltersCopy)
-        }
-
-        self.delegate2?.equale2(blockButton: false)
+		let value = localFiltersCopy == allFiltersCopy
+		self.delegateLocale?.equaleLocalFilters(value)
+		
+		if value == false{
+			self.delegateGlobal?.reloadTV()
+		}
+		
     }
 
 

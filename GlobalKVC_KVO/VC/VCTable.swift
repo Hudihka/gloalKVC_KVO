@@ -44,7 +44,7 @@ class VCTable: MainViewController {
     }
 	
 
-    override func equaleLocalFilters(blockButton: Bool) {
+	override func equaleLocalFilters(_ blockButton: Bool) {
         buttonCount.desing(blockButton)
     }
 	

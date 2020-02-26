@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, EqualeFilters {
+class MainViewController: UIViewController, EqualeLocale {
 	
 	var managerFilter = ManagerFilters.shared
 
@@ -16,7 +16,7 @@ class MainViewController: UIViewController, EqualeFilters {
         super.viewDidLoad()
 
 		managerFilter.createLocalCopu()
-        managerFilter.delegate = self
+        managerFilter.delegateLocale = self
     }
 	
     override func viewWillDisappear(_ animated: Bool) {
@@ -25,6 +25,6 @@ class MainViewController: UIViewController, EqualeFilters {
 		managerFilter.dismisLocale(save: false)
     }
 
-    func equaleLocalFilters(blockButton: Bool){}
+	func equaleLocalFilters(_ blockButton: Bool){}
 
 }

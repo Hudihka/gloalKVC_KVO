@@ -53,7 +53,7 @@ class ViewController: UIViewController {
 		]
 		
 		desingTV()
-        manager.delegate2 = self
+        manager.delegateGlobal = self
         manager.createGlobalCopu()
         saveButton.desing(true)
 	}
@@ -117,15 +117,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
 }
 
 
-extension ViewController: EqualeFilters, Equal2{
-    func equale2(blockButton: Bool) {
-        self.tableView.reloadData()
-    }
-
-    func equaleAllFilters(blockButton: Bool){
-        saveButton.desing(blockButton)
-        self.tableView.reloadData()
-    }
-
+extension ViewController: EqualGlobal{
+	func reloadTV() {
+		self.tableView.reloadData()
+	}
+	
+	func equalGlobalFilters(_ blockButton: Bool) {
+		saveButton.desing(blockButton)
+	}
 
 }

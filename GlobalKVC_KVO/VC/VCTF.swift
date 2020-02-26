@@ -108,7 +108,7 @@ class VCTF: MainViewController {
 		}
     }
 
-    override func equaleLocalFilters(blockButton: Bool) {
+	override func equaleLocalFilters(_ blockButton: Bool) {
         buttonUpdate.desing(blockButton)
     }
 	
