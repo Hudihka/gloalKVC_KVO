@@ -14,6 +14,10 @@ import UIKit
     @objc optional func equaleAllFilters(blockButton: Bool)
 }
 
+protocol Equal2: class {
+    func equale2(blockButton: Bool)
+}
+
 class ManagerFilters{
 	
 	static let shared = ManagerFilters()
@@ -24,6 +28,7 @@ class ManagerFilters{
 	private var localFiltersCopy: [Filter : FiltersValue] = [:]
 
     weak var delegate: EqualeFilters?
+    weak var delegate2: Equal2?
 	
 	func pushVC(VC: UIViewController, filter: Filter){
 		
@@ -152,6 +157,8 @@ class ManagerFilters{
         if let equal = self.delegate?.equaleAllFilters {
             equal(allFilters == allFiltersCopy)
         }
+
+        self.delegate2?.equale2(blockButton: false)
     }
 
 
