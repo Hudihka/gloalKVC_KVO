@@ -24,10 +24,10 @@ class CalendarCollection: UICollectionView, UICollectionViewDataSource, UICollec
         }
     }
 
-    init(frame: CGRect) {
+    init() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        super.init(frame: frame, collectionViewLayout: layout)
+        super.init(frame: .zero, collectionViewLayout: layout)
 
         backgroundColor = UIColor.clear
         delegate = self
@@ -35,8 +35,9 @@ class CalendarCollection: UICollectionView, UICollectionViewDataSource, UICollec
 
         register(UINib(nibName: YearsDayCell.className, bundle: nil), forCellWithReuseIdentifier: YearsDayCell.className)
 
-//        translatesAutoresizingMaskIntoConstraints = false
-//        layout.minimumLineSpacing = Constants.galleryMinimumLineSpacing
+        translatesAutoresizingMaskIntoConstraints = false
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
 //        contentInset = UIEdgeInsets(top: 0, left: Constants.leftDistanceToView, bottom: 0, right: Constants.rightDistanceToView)
 
         showsHorizontalScrollIndicator = false
@@ -46,7 +47,6 @@ class CalendarCollection: UICollectionView, UICollectionViewDataSource, UICollec
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 
     private func scrollCollectionView(){
 
@@ -104,7 +104,7 @@ class CalendarCollection: UICollectionView, UICollectionViewDataSource, UICollec
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let widthDay = (collectionView.frame.width / 7)
+        let widthDay = (self.frame.width / 7)
 
         return CGSize(width: widthDay, height: widthDay)
     }

@@ -84,33 +84,17 @@
                                     <action selector="saveButtonAction:" destination="pm5-ST-PeR" eventType="touchUpInside" id="NTa-w6-rAK"/>
                                 </connections>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ski-pg-efF">
-                                <rect key="frame" x="0.0" y="74" width="375" height="468"/>
-                                <color key="backgroundColor" red="0.32877659799999998" green="0.329051435" blue="0.32881915569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Gqt-aK-bVA">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Ski-pg-efF" firstAttribute="leading" secondItem="DgD-6w-0Lo" secondAttribute="leading" id="NdQ-76-eaj"/>
-                            <constraint firstItem="Ski-pg-efF" firstAttribute="trailing" secondItem="DgD-6w-0Lo" secondAttribute="trailing" id="UVF-Ez-WHD"/>
                             <constraint firstItem="i9h-xt-MGG" firstAttribute="centerX" secondItem="DgD-6w-0Lo" secondAttribute="centerX" id="Yzz-R8-93L"/>
-                            <constraint firstItem="Ski-pg-efF" firstAttribute="top" secondItem="DgD-6w-0Lo" secondAttribute="top" constant="54" id="cSM-Ej-bG7"/>
                             <constraint firstItem="DgD-6w-0Lo" firstAttribute="bottom" secondItem="i9h-xt-MGG" secondAttribute="bottom" constant="49" id="gci-lv-nvo"/>
-                            <constraint firstItem="i9h-xt-MGG" firstAttribute="top" secondItem="Ski-pg-efF" secondAttribute="bottom" constant="18" id="w0e-G5-FJm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DgD-6w-0Lo"/>
                     </view>
                     <navigationItem key="navigationItem" id="se5-GF-cPr"/>
                     <connections>
                         <outlet property="buttonCount" destination="i9h-xt-MGG" id="fSa-dQ-ifC"/>
-                        <outlet property="collectionView" destination="Ski-pg-efF" id="ka1-fl-TiJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eVr-1h-WNo" userLabel="First Responder" sceneMemberID="firstResponder"/>
