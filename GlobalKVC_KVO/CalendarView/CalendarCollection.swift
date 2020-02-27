@@ -9,11 +9,17 @@
 import Foundation
 import UIKit
 
+protocol ReloadYeare: class {
+    func textYear(_ text: String)
+}
+
 class CalendarCollection: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     fileprivate let dateParser = DateParser.shared
     fileprivate var month: [Month] = []
     fileprivate let managerFilter = ManagerFilters.shared
+
+    weak var delegateYeare: ReloadYeare?
 
     var filter: Filter? {
         didSet{
@@ -35,10 +41,15 @@ class CalendarCollection: UICollectionView, UICollectionViewDataSource, UICollec
 
         register(UINib(nibName: YearsDayCell.className, bundle: nil), forCellWithReuseIdentifier: YearsDayCell.className)
 
+        register(UINib(nibName: MonthHeader.className, bundle: nil),
+                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                 withReuseIdentifier: MonthHeader.className)
+
         translatesAutoresizingMaskIntoConstraints = false
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
-//        contentInset = UIEdgeInsets(top: 0, left: Constants.leftDistanceToView, bottom: 0, right: Constants.rightDistanceToView)
+
+        layout.headerReferenceSize = CGSize(width: self.frame.size.width, height: 50)
 
         showsHorizontalScrollIndicator = false
         showsVerticalScrollIndicator = false
@@ -60,10 +71,9 @@ class CalendarCollection: UICollectionView, UICollectionViewDataSource, UICollec
             self.scrollToItem(at: index, at: .top, animated: true)
 
             textHeder()
+        }else if let date = month.first?.days.first{
+            self.delegateYeare?.textYear("\(date.year) г.")
         }
-//        else if let date = month.first?.days.first{
-//            self.title = "\(date.year) г."
-//        }
 
         self.reloadData()
 
@@ -117,8 +127,20 @@ class CalendarCollection: UICollectionView, UICollectionViewDataSource, UICollec
 
     func textHeder(){
         if let cell = self.visibleCells.first, let indexSection = self.indexPath(for: cell)?.section, let date = month[indexSection].days.first {
-//            self.title = "\(date.year) г."
+            self.delegateYeare?.textYear("\(date.year) г.")
         }
+    }
+
+    //MARK: - Header
+
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "MonthHeader", for: indexPath) as! MonthHeader
+        view.month = month[indexPath.section]
+        return view
+
     }
 }
 

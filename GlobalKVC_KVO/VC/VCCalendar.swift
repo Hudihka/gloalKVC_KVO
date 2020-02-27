@@ -20,6 +20,7 @@ class VCCalendar: MainViewController {
         let CV = CalendarCollection()
 
         view.addSubview(CV)
+        CV.delegateYeare = self
 
         CV.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         CV.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -30,6 +31,7 @@ class VCCalendar: MainViewController {
         }
 
         CV.filter = filter
+
 
 		buttonCount.desing(true)
     }
@@ -57,4 +59,10 @@ class VCCalendar: MainViewController {
 
 }
 
+
+extension VCCalendar: ReloadYeare {
+    func textYear(_ text: String){
+        self.title = text
+    }
+}
 
