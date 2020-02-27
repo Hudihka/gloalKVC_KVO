@@ -18,6 +18,10 @@ protocol EqualGlobal: class {
     func equalGlobalFilters(_ blockButton: Bool)
 }
 
+protocol BBItemReload: class{
+    func reloadBBItem()
+}
+
 class ManagerFilters{
 	
 	static let shared = ManagerFilters()
@@ -29,6 +33,7 @@ class ManagerFilters{
 
     weak var delegateLocale: EqualeLocale?
     weak var delegateGlobal: EqualGlobal?
+    weak var delegateBBItem: BBItemReload?
 	
 	func pushVC(VC: UIViewController, filter: Filter){
 		
@@ -120,7 +125,6 @@ class ManagerFilters{
 		
 		localFiltersCopy = [:]
 		//TODO добавить нотифиикацию закрытия шторки
-		//делаем перезагрузку для страницы с таблицой
 	}
 	
 	
@@ -141,12 +145,38 @@ class ManagerFilters{
 		
 		if save {
 			allFilters = allFiltersCopy
+            self.delegateBBItem?.reloadBBItem()
 		}
 		
 		localFiltersCopy = [:]
 		//TODO добавить нотифиикацию закрытия вью контроллера с фильтрами
-		//и перезагрузка навигейшен бара
 	}
+
+    //MARK: delete
+
+    func deleteOne(_ filtr: Filter?){
+
+        guard let filtr = filtr else {return}
+
+        allFiltersCopy[filtr] = nil
+
+        self.delegateGlobal?.reloadTV()
+        self.delegateGlobal?.equalGlobalFilters(allFilters == allFiltersCopy)
+    }
+
+    func deleteAll(){
+
+        allFiltersCopy = [:]
+
+        self.delegateGlobal?.reloadTV()
+        self.delegateGlobal?.equalGlobalFilters(allFilters == allFiltersCopy)
+    }
+
+    //MARK: BBItem
+
+    var countSelectFilter: Int {
+        return allFilters.count
+    }
 	
 	///MARK: - сравнениие значений
 	
@@ -160,11 +190,5 @@ class ManagerFilters{
 		
     }
 
-
-//    private func eqGlobal(){
-//        if let equal = self.delegate?.equaleAllFilters {
-//            equal(allFilters == allFiltersCopy)
-//        }
-//    }
 
 }

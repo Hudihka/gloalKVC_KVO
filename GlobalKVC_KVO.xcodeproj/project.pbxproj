@@ -48,6 +48,7 @@
 		CE6AE9422401391C00E2C2BE /* Constats.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6AE9412401391C00E2C2BE /* Constats.swift */; };
 		CE6AE94624013C1700E2C2BE /* CellFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6AE94424013C1700E2C2BE /* CellFilter.swift */; };
 		CE6AE94724013C1700E2C2BE /* CellFilter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6AE94524013C1700E2C2BE /* CellFilter.xib */; };
+		CE6DFFBA2407997200FA92D7 /* AllVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6DFFB92407997200FA92D7 /* AllVController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		CE6AE9412401391C00E2C2BE /* Constats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constats.swift; sourceTree = "<group>"; };
 		CE6AE94424013C1700E2C2BE /* CellFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFilter.swift; sourceTree = "<group>"; };
 		CE6AE94524013C1700E2C2BE /* CellFilter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellFilter.xib; sourceTree = "<group>"; };
+		CE6DFFB92407997200FA92D7 /* AllVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllVController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			children = (
 				5274578C23FEE34B003F5CD7 /* Main.storyboard */,
 				52F6E67024054938000A2229 /* MainViewController.swift */,
+				CE6DFFB92407997200FA92D7 /* AllVController.swift */,
 				CE6AE9432401399000E2C2BE /* Start */,
 				5274579C23FEF4CA003F5CD7 /* VCTable.swift */,
 				5274579E23FEF4E3003F5CD7 /* VCTF.swift */,
@@ -340,6 +343,7 @@
 				5274579F23FEF4E3003F5CD7 /* VCTF.swift in Sources */,
 				CE6AE94624013C1700E2C2BE /* CellFilter.swift in Sources */,
 				CE6AE937240135F400E2C2BE /* NSObject.swift in Sources */,
+				CE6DFFBA2407997200FA92D7 /* AllVController.swift in Sources */,
 				CE6AE93E240138BB00E2C2BE /* Date.swift in Sources */,
 				52C2050D2403C64E003D5B07 /* MonthHeader.swift in Sources */,
 				52C2050C2403C64E003D5B07 /* YearsDayCell.swift in Sources */,

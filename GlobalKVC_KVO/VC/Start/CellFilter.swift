@@ -36,5 +36,8 @@ class CellFilter: UITableViewCell {
 		labelDescription.text = ManagerFilters.shared.textCell(filter)
 
     }
-    
+    @IBAction func dleteFiltr(_ sender: Any) {
+        ManagerFilters.shared.deleteOne(filter)
+    }
+
 }

@@ -66,10 +66,11 @@ class ViewController: UIViewController {
 
     @IBAction func dismisButton(_ sender: Any) {
 
-        saveButton.desing(true)
-        manager.dismisGlobal(save: false)
-        self.navigationController?.popViewController(animated: true)
+//        saveButton.desing(true)
+//        manager.dismisGlobal(save: false)
+//        self.navigationController?.popViewController(animated: true)
 
+        manager.deleteAll()
     }
 
 

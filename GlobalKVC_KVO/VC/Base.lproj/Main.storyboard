@@ -47,7 +47,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="ExN-yc-KQH">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="yY5-F7-Red">
+                        <barButtonItem key="rightBarButtonItem" title="Сбросить все" id="yY5-F7-Red">
                             <connections>
                                 <action selector="dismisButton:" destination="BYZ-38-t0r" id="mq7-oc-ifo"/>
                             </connections>
@@ -200,10 +200,10 @@
             </objects>
             <point key="canvasLocation" x="-1319" y="292"/>
         </scene>
-        <!--View Controller-->
+        <!--AllV Controller-->
         <scene sceneID="XAh-Nx-Bjp">
             <objects>
-                <viewController id="xNg-Dw-gI9" sceneMemberID="viewController">
+                <viewController id="xNg-Dw-gI9" customClass="AllVController" customModule="GlobalKVC_KVO" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nbx-b3-oML">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -216,11 +216,28 @@
                                     <segue destination="BYZ-38-t0r" kind="push" id="Aj7-yO-SXf"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIz-9k-SKM">
+                                <rect key="frame" x="16" y="80" width="343" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="ISM-7y-MmJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qU7-Aa-ucT" firstAttribute="trailing" secondItem="PIz-9k-SKM" secondAttribute="trailing" constant="16" id="PCJ-n8-7Cu"/>
+                            <constraint firstItem="PIz-9k-SKM" firstAttribute="leading" secondItem="qU7-Aa-ucT" secondAttribute="leading" constant="16" id="bLa-eM-jME"/>
+                            <constraint firstItem="PIz-9k-SKM" firstAttribute="top" secondItem="qU7-Aa-ucT" secondAttribute="top" constant="16" id="y5s-pF-OAk"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="qU7-Aa-ucT"/>
                     </view>
                     <navigationItem key="navigationItem" id="Hqt-nz-ori"/>
+                    <connections>
+                        <outlet property="labelCount" destination="PIz-9k-SKM" id="Iqx-vo-9i4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TrE-u4-m8S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
