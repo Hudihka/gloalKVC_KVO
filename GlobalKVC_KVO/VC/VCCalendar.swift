@@ -17,7 +17,6 @@ class VCCalendar: MainViewController {
 	var filter: Filter?
 	
     var month: [Month] = []
-	
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -149,6 +148,14 @@ extension VCCalendar: UICollectionViewDelegateFlowLayout, UICollectionViewDataSo
 extension VCCalendar: SelectedDateCell {
 	func selectedDate(_ date: Date){
 		dataParser.selectedDate(date: date)
+
+        if let dateOne = dataParser.selectedDataOne, let dateTwo = dataParser.selectedDataTwo {
+            managerFilter.addFiltrLocal(filter, value: dateOne)
+            managerFilter.addFiltrLocal(filter, value: dateTwo)
+        } else {
+            managerFilter.deleteOne(filter)
+        }
+
 		self.collectionView.reloadData()
 	}
 }

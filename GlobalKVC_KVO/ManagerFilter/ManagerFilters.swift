@@ -162,6 +162,9 @@ class ManagerFilters{
 
         self.delegateGlobal?.reloadTV()
         self.delegateGlobal?.equalGlobalFilters(allFilters == allFiltersCopy)
+        if filtr.tupe == .date {
+            self.delegateLocale?.equaleLocalFilters(true)
+        }
     }
 
     func deleteAll(){
