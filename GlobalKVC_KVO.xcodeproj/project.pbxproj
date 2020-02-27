@@ -49,6 +49,7 @@
 		CE6AE94624013C1700E2C2BE /* CellFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6AE94424013C1700E2C2BE /* CellFilter.swift */; };
 		CE6AE94724013C1700E2C2BE /* CellFilter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6AE94524013C1700E2C2BE /* CellFilter.xib */; };
 		CE6DFFBA2407997200FA92D7 /* AllVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6DFFB92407997200FA92D7 /* AllVController.swift */; };
+		CEB3B4FF2407F0A0001D8DD3 /* CalendarCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB3B4FE2407F0A0001D8DD3 /* CalendarCollection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		CE6AE94424013C1700E2C2BE /* CellFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFilter.swift; sourceTree = "<group>"; };
 		CE6AE94524013C1700E2C2BE /* CellFilter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellFilter.xib; sourceTree = "<group>"; };
 		CE6DFFB92407997200FA92D7 /* AllVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllVController.swift; sourceTree = "<group>"; };
+		CEB3B4FE2407F0A0001D8DD3 /* CalendarCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 		52C204FD2403C64E003D5B07 /* CalendarView */ = {
 			isa = PBXGroup;
 			children = (
+				CEB3B4FE2407F0A0001D8DD3 /* CalendarCollection.swift */,
 				52C204FE2403C64E003D5B07 /* ManagersCalendar */,
 				52C205022403C64E003D5B07 /* CalendarSupportView */,
 			);
@@ -359,6 +362,7 @@
 				CE6AE92C240135F400E2C2BE /* UITextField.swift in Sources */,
 				CE1E292824069DEE00B4D802 /* FiltersValue.swift in Sources */,
 				CE6AE926240135F400E2C2BE /* UIScrollView.swift in Sources */,
+				CEB3B4FF2407F0A0001D8DD3 /* CalendarCollection.swift in Sources */,
 				52C205092403C64E003D5B07 /* SupportCalendar.swift in Sources */,
 				5274579D23FEF4CA003F5CD7 /* VCTable.swift in Sources */,
 				CE6AE929240135F400E2C2BE /* UICollectionView.swift in Sources */,
