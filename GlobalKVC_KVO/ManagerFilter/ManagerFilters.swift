@@ -86,8 +86,9 @@ class ManagerFilters{
 	func createLocalCopu(){
 		localFiltersCopy = allFiltersCopy
 	}
-	
-	func addFiltrLocal(_ filtr: Filter?, value: Any){
+													//это значение нужно для буджета
+													//если один из TF пустой то передаем туда значение
+	func addFiltrLocal(_ filtr: Filter?, value: Any, intTwoBudget: Int? = nil){
 		
 		guard let filtr = filtr else {return}
 		
@@ -97,7 +98,7 @@ class ManagerFilters{
 			return
 		}
 		
-		structSelected.reloadStruct(filter: filtr, any: value)
+		structSelected.reloadStruct(filter: filtr, any: value, intTwoBudget: intTwoBudget)
         localFiltersCopy[filtr] = structSelected.isEmptuStruct ? nil : structSelected
         equal()
 	}

@@ -39,7 +39,7 @@ struct FiltersValue: Equatable {
     }
 
 
-    mutating func reloadStruct(filter: Filter, any: Any){
+	mutating func reloadStruct(filter: Filter, any: Any, intTwoBudget: Int?){
 
         if let value = any as? String {
             self.relodStringArray(filter: filter, str: value)
@@ -48,6 +48,7 @@ struct FiltersValue: Equatable {
 
         if let value = any as? Int {
             self.relodIntArray(int: value)
+			self.intTo = intTwoBudget
             return
         }
 

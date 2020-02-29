@@ -100,8 +100,20 @@ class VCTF: MainViewController {
 	
     @objc func kbDidHide(notification: Notification) {
 		if isNoEmmpty, minValue <= maxValue, inDiapasone{
-			managerFilter.addFiltrLocal(filter, value: minValue)
-			managerFilter.addFiltrLocal(filter, value: maxValue)
+			
+			//есть оба значениия
+			if let min = textField.count, let max = textField2.count {
+				managerFilter.addFiltrLocal(filter, value: min)
+				managerFilter.addFiltrLocal(filter, value: max)
+				return
+			}
+			
+			guard let filtr = filter else {return}
+			let value = textField.count ?? textField2.count ?? filtr.minIntValue
+			let toInt = textField.count == nil ? filtr.minIntValue : filtr.maxIntValue
+			
+			managerFilter.addFiltrLocal(filter, value: value, intTwoBudget: toInt)
+			
 		} else {
 			textField.text = nil
 			textField2.text = nil
