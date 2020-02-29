@@ -78,8 +78,14 @@ class VCTF: MainViewController {
 		self.textField2.placeholder = "до \(filter.maxIntValue)"
 		
 		if let tfStruct = managerFilter.getTFStruct(filter) {
-			self.textField.text = "\(String(describing: tfStruct.textValueMin))"
-			self.textField2.text = "\(String(describing: tfStruct.textValueMax))"
+			
+			if let min = tfStruct.textValueMin {
+				self.textField.text = "\(min)"
+			}
+			
+			if let max = tfStruct.textValueMax {
+				self.textField2.text = "\(max)"
+			}
 		}
 
         buttonUpdate.desing(true)
@@ -103,8 +109,7 @@ class VCTF: MainViewController {
 			
 			//есть оба значениия
 			if let min = textField.count, let max = textField2.count {
-				managerFilter.addFiltrLocal(filter, value: min)
-				managerFilter.addFiltrLocal(filter, value: max)
+				managerFilter.addFiltrLocal(filter, value: [min, max])
 				return
 			}
 			
@@ -112,11 +117,12 @@ class VCTF: MainViewController {
 			let value = textField.count ?? textField2.count ?? filtr.minIntValue
 			let toInt = textField.count == nil ? filtr.minIntValue : filtr.maxIntValue
 			
-			managerFilter.addFiltrLocal(filter, value: value, intTwoBudget: toInt)
+			managerFilter.addFiltrLocal(filter, value: [value], intTwoBudget: toInt)
 			
 		} else {
 			textField.text = nil
 			textField2.text = nil
+			managerFilter.addFiltrLocal(filter, value: [])
 		}
     }
 

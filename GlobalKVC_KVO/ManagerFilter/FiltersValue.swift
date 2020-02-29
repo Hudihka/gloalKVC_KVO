@@ -18,12 +18,14 @@ struct FiltersValue: Equatable {
     init(int: [Int] = [],
          string: [String] = [],
          date: [Date] = [],
-         any: Any?) {
+         any: Any?,
+		 intTo: Int? = nil) {
 
         arrayRange = int
         arrayString = string
         arrayDate = date
-
+		
+		self.intTo = intTo
 
         if let value = any as? String {
             arrayString = [value]
@@ -31,6 +33,10 @@ struct FiltersValue: Equatable {
 
         if let value = any as? Int {
             arrayRange = [value]
+        }
+		
+		if let value = any as? [Int] {
+            arrayRange = value
         }
 
         if let value = any as? Date {
@@ -45,16 +51,20 @@ struct FiltersValue: Equatable {
             self.relodStringArray(filter: filter, str: value)
             return
         }
+		
+		if let value = any as? Date {
+            self.arrayDate.append(value)
+			return
+        }
+		
+		
 
-        if let value = any as? Int {
-            self.relodIntArray(int: value)
+        if let value = any as? [Int] {
+			self.arrayRange = value
 			self.intTo = intTwoBudget
-            return
         }
 
-        if let value = any as? Date {
-            self.relodDateArray(date: value)
-        }
+
     }
 
     var isEmptuStruct: Bool{
@@ -73,14 +83,6 @@ struct FiltersValue: Equatable {
             self.arrayString = arrayString.contains(str) ? [] : [str]
         }
     }
-
-    mutating private func relodIntArray(int: Int) {
-        self.arrayRange.append(int)
-    }
-
-    mutating private func relodDateArray(date: Date) {
-        self.arrayDate.append(date)
-    }
 }
 
 
@@ -92,7 +94,7 @@ struct TFValues {
 	var textSertchMax: Int = Int.max
 	
 	
-	init(strucFiltr: FiltersValue) {
+	init(strucFiltr: FiltersValue, filtr: Filter) {
 		let array = strucFiltr.arrayRange
 		
 		if array.isEmpty {
@@ -111,8 +113,8 @@ struct TFValues {
 			let min = Swift.min(twoValue, first)
 			let max = Swift.max(twoValue, first)
 			
-			textValueMin = min
-			textValueMax = max
+			textValueMin = filtr.minIntValue == min ? nil : min
+			textValueMax = filtr.maxIntValue == max ? nil : max
 			
 			textSertchMin = min
 			textSertchMax = max

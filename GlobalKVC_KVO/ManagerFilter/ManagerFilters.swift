@@ -67,7 +67,7 @@ class ManagerFilters{
 			
 		case .range:
 			
-			return TFValues(strucFiltr: filtrStruct).textCell
+			return TFValues(strucFiltr: filtrStruct, filtr: filtr).textCell
 			
 		default:
 			
@@ -77,7 +77,7 @@ class ManagerFilters{
 	
 	func getTFStruct(_ filter: Filter) -> TFValues? {
 		guard let filtrStruct = allFiltersCopy[filter] else {return nil}
-		return TFValues(strucFiltr: filtrStruct)
+		return TFValues(strucFiltr: filtrStruct, filtr: filter)
 	}
 	
 	
@@ -93,7 +93,7 @@ class ManagerFilters{
 		guard let filtr = filtr else {return}
 		
 		guard var structSelected = localFiltersCopy[filtr] else {
-			localFiltersCopy[filtr] = FiltersValue(any: value)
+			localFiltersCopy[filtr] = FiltersValue(any: value, intTo: intTwoBudget)
             equal()
 			return
 		}
