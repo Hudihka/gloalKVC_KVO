@@ -15,15 +15,9 @@ struct FiltersValue: Equatable {
     var arrayString = [String]()
     var arrayDate = [Date]()
 
-    init(int: [Int] = [],
-         string: [String] = [],
-         date: [Date] = [],
-         any: Any?,
+    init(any: Any?,
 		 intTo: Int? = nil) {
 
-        arrayRange = int
-        arrayString = string
-        arrayDate = date
 		
 		self.intTo = intTo
 
@@ -31,16 +25,13 @@ struct FiltersValue: Equatable {
             arrayString = [value]
         }
 
-        if let value = any as? Int {
-            arrayRange = [value]
-        }
 		
 		if let value = any as? [Int] {
             arrayRange = value
         }
 
-        if let value = any as? Date {
-            arrayDate = [value]
+		if let value = any as? [Date] {
+            arrayDate = value
         }
     }
 
@@ -52,8 +43,8 @@ struct FiltersValue: Equatable {
             return
         }
 		
-		if let value = any as? Date {
-            self.arrayDate.append(value)
+		if let value = any as? [Date] {
+            self.arrayDate = value
 			return
         }
 		

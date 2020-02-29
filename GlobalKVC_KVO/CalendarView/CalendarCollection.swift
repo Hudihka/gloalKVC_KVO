@@ -150,10 +150,9 @@ extension CalendarCollection: SelectedDateCell {
         dateParser.selectedDate(date: date)
 
         if let dateOne = dateParser.selectedDataOne, let dateTwo = dateParser.selectedDataTwo {
-            managerFilter.addFiltrLocal(filter, value: dateOne)
-            managerFilter.addFiltrLocal(filter, value: dateTwo)
+            managerFilter.addFiltrLocal(filter, value: [dateOne, dateTwo])
         } else {
-            managerFilter.deleteOne(filter)
+            managerFilter.addFiltrLocal(filter, value: [])
         }
 
         self.reloadData()
