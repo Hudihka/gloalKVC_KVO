@@ -77,9 +77,9 @@ class VCTF: MainViewController {
 		self.textField.placeholder = "от \(filter.minIntValue)"
 		self.textField2.placeholder = "до \(filter.maxIntValue)"
 		
-		if let arrayInt = managerFilter.textTF(filter){
-			self.textField.text = "\(arrayInt.min()!)"
-			self.textField2.text = "\(arrayInt.max()!)"
+		if let tfStruct = managerFilter.getTFStruct(filter) {
+			self.textField.text = "\(String(describing: tfStruct.textValueMin))"
+			self.textField2.text = "\(String(describing: tfStruct.textValueMax))"
 		}
 
         buttonUpdate.desing(true)

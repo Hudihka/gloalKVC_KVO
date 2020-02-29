@@ -66,17 +66,18 @@ class ManagerFilters{
 			return "от \(first) до \(last)"
 			
 		case .range:
-		
-			guard let min = filtrStruct.arrayRange.min(),
-				let max = filtrStruct.arrayRange.max() else {return nil}
 			
-			return "от \(min) до \(max)"
+			return TFValues(strucFiltr: filtrStruct).textCell
 			
 		default:
 			
 			return filtrStruct.arrayString.joined(separator: ", ")
 		}
-		
+	}
+	
+	func getTFStruct(_ filter: Filter) -> TFValues? {
+		guard let filtrStruct = allFiltersCopy[filter] else {return nil}
+		return TFValues(strucFiltr: filtrStruct)
 	}
 	
 	
@@ -99,12 +100,6 @@ class ManagerFilters{
 		structSelected.reloadStruct(filter: filtr, any: value)
         localFiltersCopy[filtr] = structSelected.isEmptuStruct ? nil : structSelected
         equal()
-	}
-	
-	func textTF(_ filtr: Filter?) -> [Int]?{
-		guard let filtr = filtr, let array = localFiltersCopy[filtr]?.arrayRange, !array.isEmpty else {return nil}
-		
-		return array
 	}
 	
 	
@@ -195,3 +190,35 @@ class ManagerFilters{
 
 
 }
+
+//MARK: TEXT Field
+
+extension ManagerFilters{
+	
+	func valueTF(_ filtr: Filter?) -> (from: Int?, to: Int?)?{
+		guard let filtr = filtr,
+			let struc = localFiltersCopy[filtr] else {return nil}
+		
+		let array = struc.arrayRange
+		
+		if array.isEmpty {
+			return nil
+		}
+		
+		if array.count == 2 {
+			return (from: array.min(), to: array.max())
+		} else if let twoValue = struc.intTo, let first = array.first {
+			
+			if twoValue > first {
+				return (from: first, to: nil)
+			} else {
+				return (from: nil, to: first)
+			}
+		}
+		
+		
+		return nil
+	}
+	
+}
+	

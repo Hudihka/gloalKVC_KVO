@@ -10,6 +10,8 @@ import Foundation
 
 struct FiltersValue: Equatable {
     var arrayRange = [Int]()
+	var intTo: Int?  //нужно для диапазона. Если нил то ведено 2 значения
+					 //этот параметр используем только для передачи на бэк(ну или локалььной фильтрации)
     var arrayString = [String]()
     var arrayDate = [Date]()
 
@@ -78,4 +80,56 @@ struct FiltersValue: Equatable {
     mutating private func relodDateArray(date: Date) {
         self.arrayDate.append(date)
     }
+}
+
+
+struct TFValues {
+	var textValueMin: Int?
+	var textValueMax: Int?
+	
+	var textSertchMin: Int = 0
+	var textSertchMax: Int = Int.max
+	
+	
+	init(strucFiltr: FiltersValue) {
+		let array = strucFiltr.arrayRange
+		
+		if array.isEmpty {
+			return
+		}
+		
+		if array.count == 2 {
+			textValueMin = array.min()
+			textValueMax = array.max()
+			
+			textSertchMin = array.min() ?? Int.min
+			textSertchMax = array.max() ?? Int.max
+			
+		} else if let twoValue = strucFiltr.intTo, let first = array.first {
+			
+			let min = Swift.min(twoValue, first)
+			let max = Swift.max(twoValue, first)
+			
+			textValueMin = min
+			textValueMax = max
+			
+			textSertchMin = min
+			textSertchMax = max
+		}
+	}
+	
+	var textCell: String? {
+		var str = ""
+		
+		if let min = textValueMin {
+			str += "от \(min) "
+		}
+		
+		if let max = textValueMax {
+			str += "до \(max)"
+		}
+		
+		return str
+	}
+	
 }
