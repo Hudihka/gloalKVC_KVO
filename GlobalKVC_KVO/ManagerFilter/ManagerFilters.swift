@@ -58,12 +58,9 @@ class ManagerFilters{
 		switch filtr.tupe {
 		case .date:
 			
-			guard let first = filtrStruct.arrayDate.min()?.printDate(format: "d.MM.yyyy"),
-				let last = filtrStruct.arrayDate.max()?.printDate(format: "d.MM.yyyy")  else {
-					return nil
-			}
+			guard let tupl = dateSelected(filtr) else {return nil}
 			
-			return "от \(first) до \(last)"
+			return "от \(tupl.min.printDate(format: "d.MM.yyyy")) до \(tupl.max.printDate(format: "d.MM.yyyy"))"
 			
 		case .range:
 			
@@ -78,6 +75,16 @@ class ManagerFilters{
 	func getTFStruct(_ filter: Filter) -> TFValues? {
 		guard let filtrStruct = allFiltersCopy[filter] else {return nil}
 		return TFValues(strucFiltr: filtrStruct, filtr: filter)
+	}
+	
+	func dateSelected(_ filter: Filter?) -> (min: Date, max: Date)? {
+		
+		guard let filter = filter,
+			let filtrStruct = allFiltersCopy[filter],
+			let min = filtrStruct.arrayDate.min(),
+			let max = filtrStruct.arrayDate.max() else {return nil}
+		
+		return (min: min, max: max)
 	}
 	
 	

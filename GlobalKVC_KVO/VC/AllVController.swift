@@ -16,7 +16,7 @@ class AllVController: UIViewController, BBItemReload {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-textLabel()
+		textLabel()
         manager.delegateBBItem = self
     }
 

@@ -11,11 +11,18 @@ import UIKit
 class VCCalendar: MainViewController {
 	
 	@IBOutlet weak var buttonCount: UIButton!
+	let dateParser = DateParser.shared
 
 	var filter: Filter?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		if let tupl = ManagerFilters.shared.dateSelected(filter){
+			dateParser.selectedDataOne = tupl.min
+			dateParser.selectedDataTwo = tupl.max
+		}
+		
 
         let CV = CalendarCollection()
 
@@ -56,6 +63,11 @@ class VCCalendar: MainViewController {
 	override func equaleLocalFilters(_ blockButton: Bool) {
         buttonCount.desing(blockButton)
     }
+	
+	deinit {
+		dateParser.selectedDataOne = nil
+		dateParser.selectedDataTwo = nil
+	}
 
 }
 
